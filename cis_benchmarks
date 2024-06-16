@@ -1,7 +1,8 @@
 {
     "check_ssh_timeout": {
         "description": "Ensure SSH idle timeout is configured",
-        "command": "config system global; show full-configuration | grep -i 'set admin-ssh-idle-timeout'",
-        "expected_output": "set admin-ssh-idle-timeout 5"
+        "endpoint": "/api/v2/cmdb/system/global",
+        "expected_key": "admin-ssh-idle-timeout",
+        "expected_value": 5
     }
 }
