@@ -8,7 +8,7 @@
     "check_password_policy": {
         "description": "Ensure password policy is configured",
         "endpoint": "/api/v2/cmdb/system/password-policy",
-        "expected_key": "min-length",
+        "expected_key": "minimum-length",
         "expected_value": 12
     }
 }
