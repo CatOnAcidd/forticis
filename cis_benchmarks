@@ -4,5 +4,11 @@
         "endpoint": "/api/v2/cmdb/system/global",
         "expected_key": "admin-ssh-idle-timeout",
         "expected_value": 5
+    },
+    "check_password_policy": {
+        "description": "Ensure password policy is configured",
+        "endpoint": "/api/v2/cmdb/system/password-policy",
+        "expected_key": "min-length",
+        "expected_value": 12
     }
 }
