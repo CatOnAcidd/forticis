@@ -1,8 +1,9 @@
 {
     "ensure_dns_server_is_configured": {
-        "name":"1.1 Ensure DNS server is configured",
+        "desription":"1.1 Ensure DNS server is configured",
         "command":"show system dns",
-        "expected":["set primary", "set secondary"]
+        "expected_key": ["set primary", "set secondary"],
+        "expected_value": ["set primary", "set secondary"]
     },
     "check_timezone_set": {
         "description": "2.1.3 Ensure timezone is properly configured",
