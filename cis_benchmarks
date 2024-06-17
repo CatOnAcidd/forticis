@@ -1,35 +1,25 @@
 {
     "ensure_dns_server_is_configured": {
         "name":"1.1 Ensure DNS server is configured",
-        "level":"1",
-        "section":"Network Settings",
-        "command":"get system dns",
-        "cis_control_v7":"11.1 Maintain Standard Security Configurations for Network Devices",
-        "cis_control_v8":"4.9 Configure Trusted DNS Servers on Enterprise Assets",
-        "description":"Fortinet uses the Domain Name Service (DNS) to translate host names into IP addresses. To enable DNS lookups, you must specify the primary DNS server for your system. You can also specify secondary and tertiary DNS servers. When resolving host names, the system consults the primary name server. If a failure or time-out occurs, the system consults the secondary name server.",
-        "rationale":"The purpose is to perform the resolution of system hostnames to Internet Protocol (IP) addresses using trusted DNS servers.",
-        "reference":"https://docs.fortinet.com/document/fortigate/7.2.0/administration-guide/903162"
+        "command":"show system dns",
+        "expected":["set primary", "set secondary"]
     },
-    "ensure_intra-zone_traffic_is_not_always_allowed": {
-        "name":"1.2 Ensure intra-zone traffic is not always allowed",
-        "level":"1",
-        "section":"Network Settings",
-        "command":"get system zone",
-        "cis_control_v7":"2.10 Physically or Logically Segregate High Risk Applications",
-        "cis_control_v8":"4.2 Establish and Maintain a Secure Configuration Process for Network Infrastructure",
-        "description":"This is to make sure that only specific, authorized traffic is allowed between networks in the same zone.",
-        "rationale":"This adds an extra layer of protection between different networks.",
-        "reference":"https://docs.fortinet.com/document/fortigate/7.2.0/administration-guide/116821"
+    "check_timezone_set": {
+        "description": "2.1.3 Ensure timezone is properly configured",
+        "command": "show system global",
+        "expected_key": "set timezone",
+        "expected_value": "17"
     },
-    "": {
-        "name":"2.1.1 Ensure 'Pre-Login Banner' is set",
-        "level":"1",
-        "section":"System Settings - General Settings",
-        "command":"config system global",
-        "cis_control_v7":"5.1 Establish Secure Configurations",
-        "cis_control_v8":"4.2 Establish and Maintain a Secure Configuration Process for Network Infrastructure",
-        "description":"Configure a pre-login banner, ideally approved by the organization’s legal team. This banner should, at minimum, prohibit unauthorized access, provide notice of logging or monitoring, and avoid using the word “welcome” or similar words of invitation.",
-        "rationale":"Through a properly stated login banner, the risk of unintentional access to the device by unauthorized users is reduced. Should legal action take place against a person accessing the device without authorization, the login banner greatly diminishes a defendant’s claim of ignorance.",
-        "reference":"https://community.fortinet.com/t5/FortiGate/Technical-Tip-Configuring-admin-disclaimer-page/ta-p/198609?externalID=FD33887"
+    "check_ntp_configured": {
+        "description": "2.1.4 Ensure correct system time is configured through NTP",
+        "command": "show system ntp",
+        "expected_key": "set timezone",
+        "expected_value": "17"
+    },
+    "check_hostname_configured": {
+        "description": "2.1.5 Ensure hostname is set",
+        "command": "show system global",
+        "expected_key": "set hostname",
+        "expected_value": "17"
     }
 }
