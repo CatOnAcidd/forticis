@@ -13,13 +13,13 @@
     "check_ntp_configured": {
         "description": "2.1.4 Ensure correct system time is configured through NTP",
         "command": "show system ntp",
-        "expected_key": "set timezone",
-        "expected_value": "17"
+        "expected_key": "set ntpsync",
+        "expected_value": "enable"
     },
     "check_hostname_configured": {
         "description": "2.1.5 Ensure hostname is set",
         "command": "show system global",
         "expected_key": "set hostname",
-        "expected_value": "17"
+        "expected_value": None
     }
 }
