@@ -20,6 +20,6 @@
         "description": "2.1.5 Ensure hostname is set",
         "command": "show system global",
         "expected_key": "set hostname",
-        "expected_value": None
+        "expected_value": ""
     }
 }
